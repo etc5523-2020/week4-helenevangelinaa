@@ -1,0 +1,21 @@
+# This is another one!
+
+This is the trend of recovered deaths over time.
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(ggplot2)
+```
+
+```{r read-data, include=FALSE}
+covid19 <- read_csv("https://raw.githubusercontent.com/datasets/covid-19/master/data/time-series-19-covid-combined.csv")
+```
+
+```{r create-plot2, message = FALSE, warning=FALSE}
+covid19 %>%
+  filter(`Country/Region` == "Indonesia") %>%
+  ggplot(aes(x = Date,
+             y = Recovered)) +
+  geom_line()
+```
+The number of recovered cases also increased in an incresing rate!
